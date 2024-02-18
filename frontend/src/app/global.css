@@ -1,0 +1,59 @@
+.accordion-button:not(.collapsed) {
+  background-color: inherit; /* 青色の背景を除去 */
+  color: inherit; /* ボタンのテキスト色をデフォルトに保持 */
+  box-shadow: none; /* クリック時の影を除去 */
+}
+
+/* custom.css */
+.accordion-button:focus {
+  box-shadow: none; /* フォーカス時の影を無効化 */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important; /* 選択時の背景色を無効化 */
+  color: inherit !important; /* 文字色をデフォルトに保持 */
+}
+
+.accordion-button {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+/* リスト項目が重なった時に太字と少しの影を追加 */
+.list-group-item:hover {
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item:hover .text-gray {
+  font-weight: normal;
+  text-shadow: none;
+}
+.list-group-item:hover .Imat {
+  display: inline;
+}
+.list-group-item:hover .station {
+  font-size: 25px;
+  color: orange;
+}
+
+.list-group-item {
+  border-left: 0;
+  border-right: 0;
+}
+
+.text-gray {
+  color: rgb(180, 180, 180);
+}
+
+.Imat {
+  display: none;
+}
+
+.content {
+  width: 600px;
+}
+
+.btn-muted {
+  background-color: rgb(160, 160, 160);
+}
