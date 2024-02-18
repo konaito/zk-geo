@@ -11,7 +11,7 @@ interface cityInfo {
     lat: number;
 }
 
-const Normally=0;
+const Normally = 0;
 const DeniedGeolocation = 1;
 const IsCloserTrue = 2;
 const IsCloserFalse = 3;
