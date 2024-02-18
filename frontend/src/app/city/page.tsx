@@ -31,7 +31,7 @@ export default function City() {
         { "name": "Sakae", "no": "0201", "lon": 136.908619, "lat": 35.168095 },
         { "name": "Kanayama", "no": "0202", "lon": 136.900218, "lat": 35.15055 }
     ]
-
+    
     const searchParams = useSearchParams();
     const place = searchParams.get("place");
 
@@ -45,6 +45,8 @@ export default function City() {
         else {
             redirect("/");
         }
+
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, [place]);
 
     const pushButton = async () => {
