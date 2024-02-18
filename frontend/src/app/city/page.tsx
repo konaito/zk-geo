@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { redirect } from 'next/navigation'
-import { useState, useEffect } from 'react';
+import { useState, useEffect,Suspense } from 'react';
 
 interface cityInfo {
     name: string;
@@ -16,7 +16,7 @@ const DeniedGeolocation = 1;
 const IsCloserTrue = 2;
 const IsCloserFalse = 3;
 
-export default function City() {
+function City() {
     // @ts-ignore
     const cities: [cityInfo] = [
         { "name": "Shinjuku", "no": "0000", "lon": 139.700464, "lat": 35.689729 },
@@ -141,3 +141,14 @@ export default function City() {
         </>
     );
 }
+
+function CityWrapper() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <City />
+        </Suspense>
+    );
+}
+
+export default CityWrapper;
+
