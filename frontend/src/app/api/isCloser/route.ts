@@ -6,7 +6,7 @@ function sleep(ms:number) {
 
 // @ts-ignore
 export async function POST(req, res) {
-    await sleep(15000);
+    await sleep(3000);
     const data = await req.json()
     const { userLon, userLat, placeLon, placeLat } = data;
     const angle = ((userLon - placeLon) ** 2 + (userLat - placeLat) ** 2) ** (1 / 2);
