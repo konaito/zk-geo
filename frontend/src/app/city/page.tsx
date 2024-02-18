@@ -52,19 +52,15 @@ export default function City() {
     const pushButton = async () => {
         // 現在の時刻を文字列で取得
         const now = new Date().toISOString();
-
         // 文字列をArrayBufferに変換
         const encoder = new TextEncoder();
         const data = encoder.encode(now);
-
         try {
             // SHA-256 ハッシュ関数を使用してハッシュ化
             const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-
             // ArrayBufferを16進数の文字列に変換
             const hashArray = Array.from(new Uint8Array(hashBuffer));
             const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-
             // navigator.shareを使用してハッシュを共有
             await navigator.clipboard.writeText(hashHex);
             alert("Copied!")
@@ -72,7 +68,6 @@ export default function City() {
             alert(`Error: ${err}`)
         }
     };
-
 
     return (
         <>
