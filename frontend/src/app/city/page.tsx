@@ -11,6 +11,7 @@ interface cityInfo {
     lat: number;
 }
 
+const Normally=0;
 const DeniedGeolocation = 1;
 const IsCloserTrue = 2;
 const IsCloserFalse = 3;
@@ -31,12 +32,12 @@ export default function City() {
         { "name": "Sakae", "no": "0201", "lon": 136.908619, "lat": 35.168095 },
         { "name": "Kanayama", "no": "0202", "lon": 136.900218, "lat": 35.15055 }
     ]
-    
+
     const searchParams = useSearchParams();
     const place = searchParams.get("place");
 
     const [city, setCity] = useState<cityInfo>();
-    const [error, setError] = useState<number>(0);
+    const [error, setError] = useState<number>(Normally);
     const [loading, setLoading] = useState<boolean>(false);
     useEffect(() => {
         if (place) {
@@ -45,8 +46,7 @@ export default function City() {
         else {
             redirect("/");
         }
-
-// eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [place]);
 
     const pushButton = async () => {
@@ -92,7 +92,7 @@ export default function City() {
                     <p className="text-warning">User denied Geolocation</p>
                 }
                 {
-                    error == 0 &&
+                    error == Normally &&
                     <button type="button" className={"btn " + (loading ? "btn-muted" : "btn-primary")}
                         onClick={() => {
                             console.log("onClick ---start---")
